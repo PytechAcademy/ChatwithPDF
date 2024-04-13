@@ -25,7 +25,7 @@ streamlit run app.py
 
 The application will be available in your web browser at `localhost:8501` by default.
 
-## How It Works
+## How it works
 
 1. **Load documents**: Users can upload PDF documents through the web interface.
 2. **Extract text & Pre-process**: Text is extracted from the PDF and prepared for processing.
