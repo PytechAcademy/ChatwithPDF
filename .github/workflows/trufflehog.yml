@@ -1,0 +1,25 @@
+name: TruffleHog Secret Scan
+
+on:
+  push:         # Run on every commit
+    branches:   # Tracks all branches
+      - '**'
+  pull_request: # Run on every PR
+    branches:
+      - '**'
+  workflow_dispatch:  # Allows manual execution
+
+jobs:
+  secret_scan:
+    name: Secret Scanning
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4  # Updated to latest version
+
+      - name: Install TruffleHog
+        run: pip install trufflehog
+
+      - name: Run TruffleHog
+        run: trufflehog filesystem --no-entropy . || true
